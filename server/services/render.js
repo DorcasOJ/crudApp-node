@@ -13,7 +13,7 @@ exports.homeRoutes = (req, res) => {
 };
 
 exports.add_user = (req, res) => {
-  res.render(add_user);
+  res.render("add_user");
 };
 
 exports.update_user = (req, res) => {
@@ -21,6 +21,7 @@ exports.update_user = (req, res) => {
     .get("http://localhost:3000/api/users", { params: { id: req.query.id } })
     .then(function (userdata) {
       res.render("update_user", { user: userdata.data });
+      console.log(userdata)
     })
     .catch((err) => {
       res.send(err);
